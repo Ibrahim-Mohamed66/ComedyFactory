@@ -1,0 +1,42 @@
+﻿@model HomeViewModel
+@using System.Globalization
+@{
+    ViewData["Title"] = _localizer["TermsofService"];
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="terms mb-30 bg-white py-50 mt-lg-155 mt-100 box-shadow">
+    <div class="red__circle">
+        <img src="~/images/red-circle.svg" alt="Alternate Text" />
+    </div>
+    <div class="yellow__circle">
+        <img src="~/images/yellow-circle.svg" alt="Alternate Text" />
+    </div>
+    <div class="d-flex flex-column gap-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 col-lg-11 mx-auto">
+                    <div class="heading heading__line">
+                        <h1>
+                            @_localizer["TermsHeading"]
+                        </h1>
+                    </div>
+                    @foreach (var activities in Model.Activities)
+                    {
+                        <div class="mt-30 row">
+                            <div class="col-12 mb-30">
+                                <div class="heading">
+                                    <h3 class="d-flex align-items-center gap-10">
+                                        <img src="@Config.Assets@activities.Icon" alt="" width="60" />
+                                        <span class="pt-5">@(isArabic? activities.ArName:activities.EnName)</span>
+                                    </h3>
+                                </div>
+                            </div>
+                            @Html.Raw((isArabic? activities.ArContent : activities.EnContent))
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

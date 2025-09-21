@@ -1,0 +1,48 @@
+﻿@model LoginVm
+@{
+
+    ViewData["Title"] = "Login";
+    Layout = "_MiniLayout";
+
+}
+<style>
+    .container-login .wrap-login .login-logo img {
+        width: 200px !important;
+    }
+</style>
+
+<!-- Main Wrapper -->
+<div class="container-login postion-relative p-4 d-flex align-items-center justify-content-center flex-wrap h-100"
+     style="background: url('~/images/shared/pattern-bg.jpg') no-repeat center center/cover">
+    <div class="wrap-login">
+        <form asp-action="Login">
+
+            <span class="login-logo">
+                <img src="/images/factory-comdey.png" />
+            </span>
+
+            <div class="col mt-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </div>
+            <div class="input">
+                <input asp-for="Email" type="email" placeholder="Username" >
+                <span class="focus" data-placeholder=""></span>
+
+            </div>
+            <small class="text-danger"> <span asp-validation-for="Email"></span> </small>
+            <div class="input">
+                <input type="password" asp-for="Password" placeholder="Password">
+                <span class="focus" data-placeholder=""></span>
+            </div>
+            <small class="text-danger"> <span asp-validation-for="Password"></span> </small>
+
+
+            <div class="form-group text-center mt-5">
+                <button type="submit" class="btn btn-primary px-4 py-2">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

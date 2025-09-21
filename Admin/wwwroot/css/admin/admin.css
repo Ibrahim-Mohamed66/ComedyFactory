@@ -1,0 +1,114 @@
+﻿table.dataTable {
+    border-collapse: collapse !important;
+}
+
+    table.dataTable th {
+        font-weight: 500 !important;
+    }
+
+button,
+input[type=submit],
+input[type=button],
+a.fileinput-button.dz-clickable,
+a.fileinput-button.dz-clickable span {
+    cursor: pointer;
+}
+
+.tooltip-inner {
+    padding: 8px !important;
+    max-width: 300px;
+}
+
+.borderbox {
+    box-sizing: border-box;
+}
+
+.nav-item.disabled a.nav-link {
+    color: #d4d0d0 !important;
+    pointer-events: none;
+}
+
+
+.nav-item.disabled a.nav-link {
+    color: #d4d0d0 !important;
+    pointer-events: none;
+}
+
+
+div.dataTables_wrapper div.dataTables_paginate {
+    text-align: left !important;
+    float: left !important;
+}
+
+.sidebar-nav .metismenu > li > ul li a i.fa-level-2.fa-fw {
+    width: 3.285714em;
+}
+
+a.link.active i.fa.fa-fw.fa-caret-right.fa-level-2, a.link:hover i.fa.fa-fw.fa-caret-right.fa-level-2 {
+    color: #B91829
+}
+
+a {
+    cursor: pointer;
+}
+
+ul.custom li a {
+    border-bottom: none !important;
+    background-image: none !important;
+}
+
+ul.custom > li > a.link.active {
+    background: #e5e5e5 !important;
+    color: #333 !important;
+    border-bottom: none !important;
+}
+
+.metismenu > li > ul.custom-level > li > a.link.active {
+    background: transparent !important;
+}
+
+.metismenu > li > ul.custom-level > li.test > a.link.active {
+    background: #e5e5e5 !important;
+}
+
+.scroll-touch {
+    -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+}
+
+.scroll-auto {
+    -webkit-overflow-scrolling: auto; /* Stops scrolling immediately */
+}
+
+@media (max-width: 1200px) {
+    .card-header .ul-container {
+        display: grid;
+        overflow: hidden;
+    }
+
+        .card-header .ul-container ul {
+            overflow-x: scroll;
+            display: -webkit-inline-box;
+        }
+
+    .card-header {
+        overflow: hidden;
+    }
+}
+
+/*.card-header {
+    margin: 0px 12px 0px 0 !important;
+}*/
+
+
+.age_tag {
+    padding: 5px 15px;
+    background: #000;
+    color: #fff;
+    border-radius: 50px;
+    display: -webkit-inline-box;
+    margin: 5px;
+}
+
+.dropzone .dz-preview {
+    z-index: 2;
+}

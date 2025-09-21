@@ -1,0 +1,7 @@
+﻿@model string?
+
+@if (!String.IsNullOrWhiteSpace(Model))
+{
+    <span style="display: block; width: 80px; height: 25px; background-color: @("#" + Model.Replace("0xFF", ""))"></span>
+    <span>@Model</span>
+}

@@ -1,0 +1,14 @@
+﻿@model string?
+
+@{
+    var name = ViewData.ModelMetadata.DisplayName;
+    name = name.Replace(" ", "_");
+}
+<div class="input-group mb-3 ">
+    <input type="text" class="form-control" asp-for="@Model" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" aria-describedby="basic_addon_@name">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic_addon_@name">
+            <input type="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="@(Model != null ? Model.Replace("0xFF", "#"):null)" id="hexcolor_@name"/>
+        </span>
+    </div>
+</div>

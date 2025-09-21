@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @_localizer["ComedyFactory"] </title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    @await Html.PartialAsync("_Seo")
+
+    @RenderSection("Links", required: false)
+    <link href="~/lib/slick/slick.css" rel="stylesheet" />
+    <link href="~/lib/slick/slick-theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/intl-tel-input/css/intlTelInput.min.css" rel="stylesheet" />
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/lightGallery-master/dist/css/lightgallery.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap5-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/lightGallery-master/dist/css/lightgallery.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap5-select.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="~/css/en/styles.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="fixed fixed-menu-only">
+    @RenderBody()
+
+
+    <!-- Core JS -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/admin/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/admin/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <!-- Vendors JS -->
+    <script src="~/lib/admin/svg-injector/svg-injector.min.js"></script>
+    <script src="~/lib/admin/jQuery-slimScroll/jquery.slimscroll.js"></script>
+    <script src="~/lib/admin/metismenu/dist/metisMenu.min.js"></script>
+    <script type="text/javascript" src="~/lib/admin/moment/moment.js"></script>
+    <script type="text/javascript" src="~/lib/admin/daterangepicker/daterangepicker.min.js"></script>
+
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
+    <!-- Code Mirror JS files. -->
+    <script type="text/javascript" src="~/lib/admin/codemirror/codemirror.min.js"> </script>
+    <script type="text/javascript" src="~/lib/admin/codemirror/xml.min.js"> </script>
+
+    <!-- Include the plugin JS file. -->
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/plugins/code_view.min.js"></script>
+
+
+    <script src="~/lib/admin/dropzone/dist/dropzone.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jszip.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.print.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.html5.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.select.min.js"></script>
+    <script src="~/js/admin/spark.froala.js" asp-append-version="true"></script>
+
+    <script src="~/js/admin/spark.dropzone.js" asp-append-version="true"></script>
+
+    <script src="~/js/admin/spark.datatables.js" asp-append-version="true"></script>
+    <script src="~/lib/admin/bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/lib/admin/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/lib/admin/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/lib/admin/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="~/lib/admin/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/lib/admin/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/lib/admin/bootstrap-birthday/dist/bootstrap-birthday.min.js"></script>
+    <script src="~/lib/admin/lightgallery/dist/js/lightgallery-all.min.js"></script>
+    <script src="~/lib/admin/raphael/raphael-min.js"></script>
+    <script src="~/lib/admin/morris/morris.min.js"></script>
+    <script src="~/lib/admin/alertify-js/build/alertify.js"></script>
+    <!-- JS Libraries -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/feathericons/feathericons.js"></script>
+    <script src="~/lib/slick/slick.min.js"></script>
+    <script src="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/intl-tel-input/js/utils.js"></script>
+    <script src="~/lib/intl-tel-input/js/intlTelInput.min.js"></script>
+    <script src="~/lib/wow/wow.js"></script>
+    <script src="~/lib/bootstrap-timepicker/moment.min.js"></script>
+    <script src="~/lib/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="~/lib/theia/resize-sensor.min.js"></script>
+    <script src="~/lib/theia/theia.min.js"></script>
+    <script src="~/lib/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+    <script src="~/lib/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/scripts/scripts.js"></script>
+    <script src="_framework/blazor.server.js" asp-append-version="true"></script>
+
+    <!-- Custom JS -->
+    <script src="~/js/admin/script.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", false)
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+</body>
+
+</html>

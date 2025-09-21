@@ -1,0 +1,14 @@
+﻿@model string
+@{
+    string controller = this.ViewContext.RouteData.Values["controller"] != null ? this.ViewContext.RouteData.Values["controller"].ToString() : null;
+}
+@if (controller.ToLower() == "coursevideos")
+{
+    <div style="width:100%; text-align:center"><img src="https://i.vimeocdn.com/video/@(Model)_162x100.webp" /></div>
+
+}
+else
+{
+    <div style=" text-align:center"><img height="100" width="100" src="https://img.youtube.com/vi/@Model/0.jpg" /></div>
+
+}

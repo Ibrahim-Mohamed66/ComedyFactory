@@ -1,0 +1,24 @@
+table.dataTable {
+    border-collapse: collapse !important
+}
+
+table.dataTable th {
+    font-weight: 500 !important
+}
+
+button,
+input[type=submit],
+input[type=button],
+a.fileinput-button.dz-clickable,
+a.fileinput-button.dz-clickable span {
+    cursor: pointer
+}
+
+.tooltip-inner {
+    padding: 8px !important;
+    max-width: 300px
+}
+
+.borderbox {
+    box-sizing: border-box
+}

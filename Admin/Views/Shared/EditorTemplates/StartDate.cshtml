@@ -1,0 +1,13 @@
+﻿@model DateTime
+
+
+
+<div class="input-group date SpecificDates">
+    <input type="text" class="form-control SpecificDates" data-date-format="DD-MM-YYYY"
+           asp-for="@Model"
+           value="@(Model > DateTime.MinValue ? string.Format(" {0:dd/MM/yyyy}", Model) : null)" />
+    <div class="input-group-addon input-group-append">
+        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+    </div>
+</div>
+

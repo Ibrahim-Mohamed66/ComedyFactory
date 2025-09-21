@@ -1,0 +1,79 @@
+﻿@using System.Globalization
+@{
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    var lang = isArabic ? "en" : "ar";
+}
+<nav class="navbar navbar-expand-lg bg-white box-shadow-lg">
+    <div class="container">
+        <div class="col-xl-11 col-lg-10 col-12 mx-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand d-lg-none d-inline-block px-30" asp-action="Index" asp-controller="Home"
+                asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                <img src="~/images/factory-comdey.png" alt="factory-comdey" width="150" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav @(isArabic ? "ms-auto" : "me-auto") gap-lg-30 gap-0 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link @Html.IsSelected("Home", "Index")" asp-action="Index" asp-controller="Home"
+                            asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                            @_localizer["HomePage"] </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn__register @Html.IsSelected("Registeration", "Create")" asp-action="Create"
+                            asp-controller="Registeration"
+                            asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                            @_localizer["SignUp"] </a>
+                    </li>
+                </ul>
+                <a class="navbar-brand d-lg-inline-block d-none px-30" asp-action="Index" asp-controller="Home"
+                    asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                    <img src="~/images/factory-comdey.png" alt="factory-comdey" width="150" />
+                </a>
+                <ul class="navbar-nav @(isArabic ? "me-auto" : "ms-auto") gap-lg-30 gap-0 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link @Html.IsSelected("Home", "Terms")" asp-action="Terms" asp-controller="Home"
+                            asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                            @_localizer["HowToSignUp"]</a>
+                    </li>
+                    @if(!User.Identity.IsAuthenticated)
+                    {
+                        
+                        <li class="nav-item">
+                            <a class="nav-link @Html.IsSelected("Account", "Login")" asp-action="Login"
+                                asp-controller="Account"
+                                asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                                @_localizer["Login"]</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @Html.IsSelected("Account", "Register")" asp-action="Register"
+                                asp-controller="Account"
+                                asp-route-language="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+                                @_localizer["Register"]</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-link nav-link">
+                                    @_localizer["Logout"]
+                                </button>
+                            </form>
+                        </li>
+                    }
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-route-language="@lang"> @(isArabic ? "English" : "عربي") </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

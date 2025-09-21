@@ -1,0 +1,64 @@
+@media print {
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    direction: rtl;
+  }
+
+  .ticket {
+    font-family: "Changa", sans-serif;
+    max-width: 450px;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    color: #000;
+    font-weight: bold;
+    direction: rtl;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .line {
+      border-bottom: 1px solid #000;
+      width: 100%;
+      margin: 20px 0;
+    }
+    .court__player {
+      display: flex;
+      justify-content: space-between;
+      .court,
+      .player {
+        display: flex;
+        align-items: center;
+        .data {
+          margin-right: 10px;
+        }
+      }
+    }
+    .info {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+          display: flex;
+          justify-content: space-between;
+          &:not(:last-child) {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+    .qr {
+      text-align: center;
+      margin-top: 70px;
+      div {
+        font-size: 9px;
+        margin-top: 5px;
+      }
+    }
+  }
+}

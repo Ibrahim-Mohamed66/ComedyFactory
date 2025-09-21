@@ -1,0 +1,136 @@
+﻿@using Domain.Enums
+@model BlockViewModel
+
+@{
+    ViewData["Title"] = _localizer["Create"];
+    var blockType = (BlockType)ViewData["BlockType"];
+
+}
+
+
+<div class="content-wrapper">
+    <div class="page-title">
+        <span class="title-data" data-main='@(ViewData["Main"])'>@ViewData["Title"]</span>
+    </div>
+    <div class="card main-card w-100">
+        <div class="card-body">
+            <form asp-action="Create" asp-route-blockType="@ViewData["BlockType"]">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                <div class="form-group row">
+                    <label asp-for="ArName" class="col-xl-2 col-lg-3 col-form-label"></label>
+                    <div class="col-xl-10 col-lg-9">
+                        <input asp-for="ArName" class="form-control" />
+                        <small><span asp-validation-for="ArName" class="form-text text-danger"></span></small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="EnName" class="col-xl-2 col-lg-3 col-form-label"></label>
+                    <div class="col-xl-10 col-lg-9">
+                        <input asp-for="EnName" class="form-control" />
+                        <small><span asp-validation-for="EnName" class="form-text text-danger"></span></small>
+                    </div>
+                </div>
+
+
+                @if (blockType != BlockType.SignUpBanner)
+                {
+                    <div class="form-group row">
+                        <label asp-for="ArContent" class="col-xl-2 col-lg-3 col-form-label"></label>
+                        <div class="col-xl-10 col-lg-9">
+                            @Html.EditorFor(model => model.ArContent)
+                            <small><span asp-validation-for="ArContent" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="EnContent" class="col-xl-2 col-lg-3 col-form-label"></label>
+                        <div class="col-xl-10 col-lg-9">
+                            @Html.EditorFor(model => model.EnContent)
+                            <small><span asp-validation-for="EnContent" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+                }
+
+                @if (blockType == BlockType.HomePage)
+                {
+                    <div class="form-group row">
+                        <label asp-for="ArYoutubeVideo" class="col-xl-2 col-lg-3 col-form-label"></label>
+                        <div class="col-xl-10 col-lg-9">
+                            <input asp-for="ArYoutubeVideo" class="form-control" />
+                            <small><span asp-validation-for="ArYoutubeVideo" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="EnYoutubeVideo" class="col-xl-2 col-lg-3 col-form-label"></label>
+                        <div class="col-xl-10 col-lg-9">
+                            <input asp-for="EnYoutubeVideo" class="form-control" />
+                            <small><span asp-validation-for="EnYoutubeVideo" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+                }
+
+                @if (blockType != BlockType.AboutUs && blockType != BlockType.Terms && blockType != BlockType.ThanksEmail)
+                {
+
+                    <div class="form-group row">
+                        <label asp-for="ArPicture" class="col-xl-2 col-lg-3 col-form-label"></label>
+                        <div class="col-xl-10 col-lg-9">
+                            @Html.EditorFor(model => model.ArPicture)
+                            <small><span asp-validation-for="ArPicture" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="EnPicture" class="col-xl-2 col-lg-3 col-form-label"></label>
+                        <div class="col-xl-10 col-lg-9">
+                            @Html.EditorFor(model => model.EnPicture)
+                            <small><span asp-validation-for="EnPicture" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    @if (blockType != BlockType.HomePage && blockType != BlockType.SignUpBanner && blockType != BlockType.ThanksEmail)
+                    {
+
+                        <div class="form-group row">
+                            <label asp-for="EnDescription" class="col-xl-2 col-lg-3 col-form-label"></label>
+                            <div class="col-xl-10 col-lg-9">
+                                <input asp-for="EnDescription" class="form-control" />
+                                <small><span asp-validation-for="EnDescription" class="form-text text-danger"></span></small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="ArDescription" class="col-xl-2 col-lg-3 col-form-label"></label>
+                            <div class="col-xl-10 col-lg-9">
+                                <input asp-for="ArDescription" class="form-control" />
+                                <small><span asp-validation-for="ArDescription" class="form-text text-danger"></span></small>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+
+                <div class="form-group  row">
+                    <label asp-for="Hidden" class="col-xl-2 col-lg-3 col-form-label"></label>
+                    <div class="col-xl-10 col-lg-9">
+                        <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                            <input type="checkbox" asp-for="Hidden" class="custom-control-input">
+                            <span class="custom-control-label"></span>
+                            <label class="custom-control-description" asp-for="Hidden"></label>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-end">
+                    <input type="submit" class="btn btn-primary" value="@_localizer["Save"]" />
+                    <a asp-action="Index" asp-route-blockType="@ViewData["BlockType"]" class="btn btn-secondary d-inline-block ml-3">@_localizer["Cancel"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@model DateTime
+@{
+    DateTime.TryParse(ViewData["value"]?.ToString(), out var t);
+} 
+<div class="input-group date datetimepicker ar">
+    <input type="text" class="form-control"  data-date-format="h:mm a"
+           asp-for="@Model"
+           value="@(Model > DateTime.MinValue ? string.Format(new System.Globalization.CultureInfo("en-GB"),"{0: hh:mm tt}", Model) :
+                t > DateTime.MinValue ? string.Format(new System.Globalization.CultureInfo("en-GB"), "{0: hh:mm tt}", t) :
+                string.Format(new System.Globalization.CultureInfo("en-GB"), "{0: hh:mm tt}", new DateTime()) )"/>
+    <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+    </span>
+</div>

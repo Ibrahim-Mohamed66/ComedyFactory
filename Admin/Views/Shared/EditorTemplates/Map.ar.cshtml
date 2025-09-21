@@ -1,0 +1,14 @@
+﻿@model string?
+@{
+    // var mapKey = await _service.GetSeo();
+}
+<fieldset class="gllpLatlonPicker ar">
+    <div class="d-flex justify-content-around">
+        <input type="text" class="gllpSearchField form-control" placeholder="اكتب الموقع هنا">
+        <input type="text" class="gllpLinkField form-control" placeholder="او ادخل رابط جوجل هنا">
+        <input type="button" class="gllpCurrentLocation btn my_btn" value="او اضغط هنا لموقعك الحالي">
+    </div>
+    <div class="gllpMap form-control" style="height: 300px">@_localizer["GoogleMaps"]</div>
+    <input type="hidden" class="gllpZoom" value="12" />
+    <input type="hidden" class="gllLatLng" asp-for="@Model" />
+</fieldset>

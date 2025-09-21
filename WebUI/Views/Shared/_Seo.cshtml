@@ -1,0 +1,61 @@
+@* @using Spark.Domain.Interfaces
+@inject IConfigurationRepository SeoService
+@{
+    Configuration? seo = await SeoService.GetFirstConfigurationAsync();
+}
+@if (seo != null)
+{
+    @if (ViewData["Title"] != null)
+    {
+        <title>@ViewData["Title"] - @seo?.EnName </title>
+    }
+    else
+    {
+        <title>@ViewData["Title"] - @seo?.EnName </title>
+    }
+    @if (ViewData["MetaDescription"] != null)
+    {
+        <meta name="description" content="@ViewData["MetaDescription"]" />
+    }
+    else
+    {
+        <meta name="description" content="@seo?.EnMetaDescription" />
+    }
+    @if (ViewData["MetaKeywords"] != null)
+    {
+        <meta name="keywords" content="@ViewData["MetaKeywords"]" />
+    }
+    else
+    {
+        <meta name="keywords" content="@seo?.EnKeywords" />
+    }
+    <meta property="og:title" content="@ViewData["Title"] - @seo?.EnName" />
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    @if (ViewData["SocialPicture"] != null)
+    {
+        <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host@ViewData["SocialPicture"]?w=400&h=400&mode=crop&quality=90&format=jpg" />
+        <meta property="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host@ViewData["SocialPicture"]?w=400&h=400&mode=crop&quality=90&format=jpg" />
+        <meta property="facebook:image" content="@Context.Request.Scheme://@Context.Request.Host@ViewData["SocialPicture"]?w=400&h=400&mode=crop&quality=90&format=jpg" />
+        <meta property="linkedin:image" content="@Context.Request.Scheme://@Context.Request.Host@ViewData["SocialPicture"]?w=400=400&mode=crop&quality=90&format=jpg" />
+    }
+    else
+    {
+        <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host@seo?.SocialPicture?w=400&h=400&mode=crop&quality=90&format=jpg" />
+        <meta property="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host@seo?.SocialPicture?w=400&h=400&mode=crop&quality=90&format=jpg" />
+        <meta property="facebook:image" content="@Context.Request.Scheme://@Context.Request.Host@seo?.SocialPicture?w=400&h=400&mode=crop&quality=90&format=jpg" />
+        <meta property="linkedin:image" content="@Context.Request.Scheme://@Context.Request.Host@seo?.SocialPicture?w=400=400&mode=crop&quality=90&format=jpg" />
+    }
+    @if (ViewData["MetaDescription"] != null)
+    {
+        <meta property="og:description" content="@ViewData["MetaDescription"]" />
+    }
+    else
+    {
+        <meta property="og:description" content="@seo?.EnMetaDescription" />
+    }
+    <meta name="og:type" content="website">
+
+    @Html.Raw(seo?.GoogleAnalytics)
+
+    @Html.Raw(seo?.SEOScripts)
+} *@

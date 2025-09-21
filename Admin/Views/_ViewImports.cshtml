@@ -1,3 +1,21 @@
 ﻿@using Admin
 @using Admin.Models
+@using Admin.ViewModels
+@using Domain.Models
+@using IOC.Resources
+@using IoC
+@using Microsoft.Extensions.Localization
+@using Data
+@using Data.Context
+@using Microsoft.AspNetCore.Http.Extensions
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@inject IStringLocalizer<SharedResource> _localizer
+@inject UserManager<ApplicationUser> _userMnager
+@using Admin.DataTable
+
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, JqueryDataTables.ServerSide.AspNetCoreWeb

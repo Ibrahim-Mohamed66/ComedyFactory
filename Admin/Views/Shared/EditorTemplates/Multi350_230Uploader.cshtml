@@ -1,0 +1,14 @@
+﻿@model string
+
+@{
+    string modelName = ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty);
+}
+<div class="form-control dropzone multi image resizable  @modelName   clearfix" id="@Model" data-w="350" data-h="230">
+    <input  type="hidden" class="" asp-for="@Model" />
+    <a class="btn btn-secondary fileinput-button dz-clickable float-right" href="javascript:void(0);">
+        <i class="fa fa-file-image-o"></i>
+        <span>Add image... </span>
+    </a>
+</div>
+
+

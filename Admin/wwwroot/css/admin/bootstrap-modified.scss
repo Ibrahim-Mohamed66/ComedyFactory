@@ -1,0 +1,23 @@
+    @charset "UTF-8";
+    /* Imported files
+-------------------------------------------------- */
+    @import url('https://fonts.googleapis.com/css?family=Lato:300i,400,700');
+
+    /* Bootstrap Custom Classes
+-------------------------------------------------- */
+
+    $primary-color: #367ABB;
+    $secondary-color:#868e96;
+    $tertiary-color: #fd7e14;
+    $theme-colors: (primary:$primary-color, secondary: $secondary-color, tertiary: $tertiary-color);
+    $border-radius: .25rem !default;
+    $border-radius-lg: .3rem !default;
+    $border-radius-sm: .2rem !default;
+    $font-size-base: 14px; // this changes the font-size throughout bootstrap
+    $font-family-sans-serif: 'Lato',
+    sans-serif;
+    $font-size-base: 0.875rem;
+    $line-height-base: 1.6;
+    $spacer: 1rem;
+    $spacers: (0: 0, 1: ($spacer * .25), 2: ($spacer * .5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3), 6: ($spacer * 4), 7: ($spacer * 5), 8: ($spacer * 6), 9: ($spacer * 7), 10: ($spacer * 8), 11: ($spacer * 9), 12: ($spacer * 10));
+    @import "../../lib/bootstrap/scss/bootstrap";

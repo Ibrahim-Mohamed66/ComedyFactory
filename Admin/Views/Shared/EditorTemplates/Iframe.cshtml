@@ -1,0 +1,45 @@
+﻿@model dynamic
+@{
+    string action = this.ViewContext.RouteData.Values["action"] != null ? this.ViewContext.RouteData.Values["action"].ToString() : null;
+
+    string modelName = ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty);
+}
+
+<input type="hidden" asp-for="@Model" value="@Model" />
+<input type="text" name="@(Url.Content(modelName))" id="Iframe@(Url.Content(modelName))" class="form-control" value="@Model" />
+<small>
+    <div id="iframe-error" class=" text-center text-capitalize"></div>
+</small>
+
+<script type="text/javascript">
+    $(function () {
+        $('#Iframe@(Url.Content(modelName))').blur(function () {
+            if ($('#Iframe@(Url.Content(modelName))').val() == null || $('#Iframe@(Url.Content(modelName))').val() == "" || $('#Iframe@(Url.Content(modelName))').val() !=$('#@(Url.Content(modelName))').val())
+                                {
+                                     var videoId = getSRC($('#Iframe@(Url.Content(modelName))').val());
+                            $('#@(Url.Content(modelName))').val(videoId);
+                                }
+
+        });
+    });
+    function getSRC(url) {
+        if (url === null) { return ""; }
+
+        var vid;
+        var results;
+
+        if (url.indexOf("iframe") >= 0) {
+            $('#iframe-error').html("");
+            $('#iframe-error').removeClass("alert");
+            $('#iframe-error').removeClass("alert-danger");
+            results = $(url).attr("src");
+            vid = (results === null) ? url : results;
+        }
+        else {
+            $('#iframe-error').html("Enter valid Iframe Link");
+            $('#iframe-error').addClass("alert");
+            $('#iframe-error').addClass("alert-danger");
+        }
+        return vid;
+    }
+</script>

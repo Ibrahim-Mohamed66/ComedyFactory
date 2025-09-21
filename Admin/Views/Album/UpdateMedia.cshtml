@@ -1,0 +1,106 @@
+﻿@using Domain.Enums
+@model AlbumMediaViewModel
+@{
+    ViewData["Title"] = _localizer["Add Gallery"];
+    ViewData["Main"] = _localizer["Album"];
+}
+
+<div class="content-wrapper">
+    <div class="page-title">
+        <span class="title-data" data-main='@(ViewData["Main"])'>@ViewData["Title"]</span>
+    </div>
+    <div class="add__project bg-white p-4 shadow">
+        <form asp-action="UpdateMedia" method="post" id="form_gallery">
+            <input type="hidden"asp-for="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group row form_data">
+                <label asp-for="MediaType" class="col-xl-2 col-lg-3 col-form-label "></label>
+                <div class="col-xl-10 col-lg-9 ">
+                    <select class="form-control" asp-for="MediaType" asp-items="@Html.GetEnumSelectList<MediaType>().Where(e => e.Value.ToString() != ((int)MediaType.None).ToString())">
+                        <option value="">Select Type</option>
+                    </select>
+                    <small><span asp-validation-for="MediaType" class="form-text text-danger"></span></small>
+                </div>
+            </div>
+            <div class="form-group row form_data pic d-none">
+                <label asp-for="Picture" class="col-xl-2 col-lg-3 col-form-label "></label>
+                <div class="col-xl-10 col-lg-9 ">
+                    @Html.EditorFor(e => e.Picture)
+                    <small><span asp-validation-for="Picture" class="form-text text-danger"></span></small>
+                </div>
+            </div>
+
+            <div class="form-group row form_data video d-none">
+                <label asp-for="YouTubeLink" class="col-xl-2 col-lg-3 col-form-label "></label>
+                <div class="col-xl-10 col-lg-9 ">
+                    @Html.EditorFor(e => e.YouTubeLink)
+                    <small><span asp-validation-for="YouTubeLink" class="form-text text-danger"></span></small>
+                </div>
+            </div>
+            @Html.HiddenFor(e => e.AlbumId)
+
+            <div class="form-group d-flex justify-content-end my-5">
+                <input type="submit" name="Save" class="btn btn-primary mr-3  SaveBtn d-none" value="@_localizer["Save"]" />
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="DisplayOrder" class="col-md-2 col-form-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="DisplayOrder" type="text" class="touchspin touchspin-sm" value="1">
+                    <small><span asp-validation-for="DisplayOrder" class="form-text text-danger"></span></small>
+                </div>
+            </div>
+
+            <div class="form-group  row">
+                <label asp-for="Hidden" class="col-xl-2 col-lg-3 col-form-label"></label>
+                <div class="col-xl-10 col-lg-9">
+                    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                        <input type="checkbox" asp-for="Hidden" class="custom-control-input">
+                        <span class="custom-control-label"></span>
+                        <label class="custom-control-description" asp-for="Hidden"></label>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group d-flex justify-content-end">
+                <input type="submit" class="btn btn-primary" value="@_localizer["Save"]" />
+                <a asp-action="Index" class="btn btn-secondary d-inline-block ml-3">@_localizer["Cancel"]</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            function toggleFields() {
+                var selectedType = $("#MediaType").val();
+
+                if (selectedType === "1") { // Photo
+                    $(".pic").removeClass("d-none");
+                    $(".video").addClass("d-none");
+                }
+                else if (selectedType === "2") { // YoutubeURL
+                    $(".video").removeClass("d-none");
+                    $(".pic").addClass("d-none");
+                }
+                else {
+                    $(".pic, .video").addClass("d-none");
+                }
+            }
+
+            // Run on page load
+            toggleFields();
+
+            // Run on change
+            $("#MediaType").on("change", function () {
+                toggleFields();
+            });
+        });
+    </script>
+}

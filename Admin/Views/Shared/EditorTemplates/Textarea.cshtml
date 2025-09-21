@@ -1,0 +1,5 @@
+﻿@model string
+@{
+    var name = ViewData.ModelMetadata.DisplayName;
+}
+<textarea asp-for="@Model" class="form-control" placeholder="@name"></textarea>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - @_localizer["Comedy Factory Administration Panel"]</title>
+
+    <!-- Core Style -->
+    <link rel="stylesheet" href="~/css/admin/en/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/admin/en/general.min.css">
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal:300,400,700&display=swap&subset=arabic" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="~/lib/admin/metismenu/dist/metisMenu.min.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/admin/daterangepicker/daterangepicker.css" />
+
+    <link href="~/lib/admin/froala-wysiwyg-editor/css/froala_style.css" rel="stylesheet" />
+    <link href="~/lib/admin/froala-wysiwyg-editor/css/froala_editor.pkgd.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/admin/codemirror/codemirror.min.css">
+
+    <link href="~/lib/admin/froala-wysiwyg-editor/css/plugins/code_view.min.css" rel="stylesheet" />
+
+    <link href="~/lib/admin/dropzone/dist/basic.css" rel="stylesheet" />
+    <link href="~/lib/admin/dropzone/dist/dropzone.css" rel="stylesheet" />
+
+    <link href="~/lib/admin/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/admin/datatables/media/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/admin/datatables/media/css/select.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/admin/bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/admin/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/lib/admin/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="~/lib/admin/select2/dist/css/select2-bootstrap4.min.css" rel="stylesheet">
+    <link href="~/lib/admin/selectize/dist/css/selectize.css" rel="stylesheet">
+    <link href="~/lib/admin/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/admin/lightgallery/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="~/lib/admin/morris/morris.css">
+    <link rel="stylesheet" href="~/lib/admin/alertify-js/build/css/alertify.min.css">
+
+
+    <!-- Vendor style -->
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="~/css/admin/en/style.min.css" asp-append-version="true">
+
+    @RenderSection("Css", false)
+
+</head>
+
+<body class="fixed fixed-menu-only">
+    @RenderBody()
+
+
+    <!-- Core JS -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/admin/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/admin/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <!-- Vendors JS -->
+    <script src="~/lib/admin/svg-injector/svg-injector.min.js"></script>
+    <script src="~/lib/admin/jQuery-slimScroll/jquery.slimscroll.js"></script>
+    <script src="~/lib/admin/metismenu/dist/metisMenu.min.js"></script>
+    <script type="text/javascript" src="~/lib/admin/moment/moment.js"></script>
+    <script type="text/javascript" src="~/lib/admin/daterangepicker/daterangepicker.min.js"></script>
+
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
+    <!-- Code Mirror JS files. -->
+    <script type="text/javascript" src="~/lib/admin/codemirror/codemirror.min.js"> </script>
+    <script type="text/javascript" src="~/lib/admin/codemirror/xml.min.js"> </script>
+
+    <!-- Include the plugin JS file. -->
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/plugins/code_view.min.js"></script>
+
+
+    <script src="~/lib/admin/dropzone/dist/dropzone.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jszip.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.print.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.html5.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.select.min.js"></script>
+    <script src="~/js/admin/spark.froala.js" asp-append-version="true"></script>
+
+    <script src="~/js/admin/spark.dropzone.js" asp-append-version="true"></script>
+
+    <script src="~/js/admin/spark.datatables.js" asp-append-version="true"></script>
+    <script src="~/lib/admin/bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/lib/admin/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/lib/admin/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/lib/admin/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="~/lib/admin/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/lib/admin/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/lib/admin/bootstrap-birthday/dist/bootstrap-birthday.min.js"></script>
+    <script src="~/lib/admin/lightgallery/dist/js/lightgallery-all.min.js"></script>
+    <script src="~/lib/admin/raphael/raphael-min.js"></script>
+    <script src="~/lib/admin/morris/morris.min.js"></script>
+    <script src="~/lib/admin/alertify-js/build/alertify.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/js/admin/script.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", false)
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+﻿@{
+    // var user = await _userMnager.GetUserAsync(User);
+    // var branches =await _common.GetBranchesSelectList("en",user.BranchId);
+
+}
+
+
+<div class="row align-items-center w-100 no-gutters">
+
+    <div class="col">
+        <div class="menu-btn">
+            <button class="btn btn-link rounded-0"><i class="fa fa-bars" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="col">
+        <a href="javascript:void(0)" class="header-logo">
+            <img src="/images/factory-comdey.png" alt="Logo">
+        </a>
+    </div>
+
+    <div class="col">
+        <div class="account-menu">
+            <!-- Language Switcher -->
+            <div class="dropdown  mr-2 text-right">
+                <button class="btn btn-outline-dark btn-sm " role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i><span
+                        class="ml-2 d-none d-md-inline">@_localizer["My Account"]</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right py-2" aria-labelledby="dropdownMenuLink">
+                    @* <a class="dropdown-item small py-2 px-3">@(user != null ? user.Email : "")</a> *@
+                    <a class="dropdown-item small py-2 px-3" asp-controller="Manage" asp-action="ChangePassword"><i
+                            class="fa fa-cog mr-2" aria-hidden="true"></i>@_localizer["Change Password"] </a>
+                    <form asp-controller="account" asp-action="Logout">
+                        <button class="dropdown-item small py-2 px-3"><i class="fa fa-sign-out mr-2"
+                                aria-hidden="true"></i> @_localizer["Sign Out"]</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

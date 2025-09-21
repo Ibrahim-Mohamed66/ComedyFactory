@@ -1,49 +1,105 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using System.Globalization
+@{
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<!DOCTYPE html>
+<html lang="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName" dir="@(isArabic ? "rtl" : "ltr")">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebUI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebUI.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - @_localizer["ComedyFactory"] </title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    @await Html.PartialAsync("_Seo")
+
+    @RenderSection("Links", required: false)
+    <link href="~/lib/slick/slick.css" rel="stylesheet" />
+    <link href="~/lib/slick/slick-theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/intl-tel-input/css/intlTelInput.min.css" rel="stylesheet" />
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/lightGallery-master/dist/css/lightgallery.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap5-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/lightGallery-master/dist/css/lightgallery.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-select/bootstrap5-select.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="~/css/en/styles.min.css" rel="stylesheet" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebUI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="wrap">
+        <partial name="_Navbar" />
+        @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - WebUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <partial name="_Footer" />
+
+    <!-- JS Libraries -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/feathericons/feathericons.js"></script>
+    <script src="~/lib/slick/slick.min.js"></script>
+    <script src="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/intl-tel-input/js/utils.js"></script>
+    <script src="~/lib/intl-tel-input/js/intlTelInput.min.js"></script>
+    <script src="~/lib/wow/wow.js"></script>
+    <script src="~/lib/bootstrap-timepicker/moment.min.js"></script>
+    <script src="~/lib/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="~/lib/theia/resize-sensor.min.js"></script>
+    <script src="~/lib/theia/theia.min.js"></script>
+    <script src="~/lib/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+    <script src="~/lib/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/scripts/scripts.js"></script>
+    <script src="_framework/blazor.server.js" asp-append-version="true"></script>
+
+    <!-- Google Recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcUbmUpAAAAACW0vZW8BTchJ76jJc44NLXP_4rs"></script>
+    <script>
+        $(function () {
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LcUbmUpAAAAACW0vZW8BTchJ76jJc44NLXP_4rs', { action: 'login' })
+                    .then(function (token) {
+                        if (token) {
+                            document.getElementById('g-recaptcha-response').value = token;
+                        }
+                    });
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        feather.replace();
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+        new WOW().init();
+        document.getElementById('year').innerHTML = new Date().getFullYear();
+    </script>
 </body>
+
 </html>

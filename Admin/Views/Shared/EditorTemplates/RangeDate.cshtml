@@ -1,0 +1,6 @@
+﻿@model string?
+@{
+    //value="@(Model > DateTime.MinValue ? Model.ToString("yyyy/MM/dd",Extantion.GetCultureInfo("en-US")) :null)"
+}
+    <input type="text" class="form-control dateRangeFilter"  asp-for="@Model"  />
+

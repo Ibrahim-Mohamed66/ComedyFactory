@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HomePage" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="SignUpNow" xml:space="preserve">
+    <value>قدم الأن</value>
+  </data>
+  <data name="The brilliant team behind Comedy Factory" xml:space="preserve">
+    <value>الفريق اللامع وراء مصنع الكوميديا</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>اقرأ المزيد</value>
+  </data>
+  <data name="ReadLess" xml:space="preserve">
+    <value>اقرأ أقل</value>
+  </data>
+  <data name="SignUpMessage" xml:space="preserve">
+    <value>خُذ خطوتك الأولى لتحقیق حلمك والانطلاق نحو النجومیة!
+</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>المزيد من المعلومات</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>التكوين</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>المستخدمون</value>
+  </data>
+  <data name="Desire" xml:space="preserve">
+    <value>الرغبة</value>
+  </data>
+  <data name=" Master Category" xml:space="preserve">
+    <value>الفئة الرئيسية</value>
+  </data>
+  <data name="Professor" xml:space="preserve">
+    <value>الأستاذ</value>
+  </data>
+  <data name="Footer" xml:space="preserve">
+    <value>كل الحقــــوق محفوظــــة لمصنع الكوميديا ©</value>
+  </data>
+  <data name="ComedyFactory" xml:space="preserve">
+    <value>مصنع الضّحك</value>
+  </data>
+  <data name="TermsHeading" xml:space="preserve">
+    <value>الشروط والأحكام للتسجيل في مصنع الكوميديا</value>
+  </data>
+  <data name="TermsofService" xml:space="preserve">
+    <value>كيفية التسجيل</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value> سجل الآن</value>
+  </data>
+  <data name="HowToSignUp" xml:space="preserve">
+    <value>طریقة التسجیل</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>الهاتف</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>الدولة</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>اختر</value>
+  </data>
+  <data name="IWantToSignUpFor" xml:space="preserve">
+    <value>أريد التسجيل في</value>
+  </data>
+  <data name="ThankYouForSigningUp" xml:space="preserve">
+    <value>شكراً لك على التسجيل</value>
+  </data>
+  <data name="ContactMessage" xml:space="preserve">
+    <value>يمكنك توقع سماع من لجنتنا وسنتصل بك قريباً</value>
+  </data>
+  <data name="Agree" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="Activities" xml:space="preserve">
+    <value>الأنشطة</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>إنشاء</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>إنشاء جديد</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>الدول</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>المدن</value>
+  </data>
+  <data name="SystemUsers" xml:space="preserve">
+    <value>مستخدمي النظام</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>لا شيء</value>
+  </data>
+  <data name="UploadPicture" xml:space="preserve">
+    <value>رفع صورة...</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+  <data name="ViewMap" xml:space="preserve">
+    <value>عرض الخريطة</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="All copyrights reserved to Comedy Factory" xml:space="preserve">
+    <value>كافة الحقوق محفوظة لمصنع الكوميديا</value>
+  </data>
+  <data name="Comedy Factory Administration Panel" xml:space="preserve">
+    <value>لوحة إدارة مصنع الكوميديا</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>الشروط</value>
+  </data>
+  <data name="Registrations" xml:space="preserve">
+    <value>التسجيلات</value>
+  </data>
+  <data name="Logs" xml:space="preserve">
+    <value>السجلات</value>
+  </data>
+  <data name="UpdatedAt" xml:space="preserve">
+    <value>تم التحديث في</value>
+  </data>
+  <data name="YesDeleteIt" xml:space="preserve">
+    <value>نعم، احذفه!</value>
+  </data>
+  <data name="Studio" xml:space="preserve">
+    <value>الاستوديو</value>
+  </data>
+  <data name="GoogleMaps" xml:space="preserve">
+    <value>خرائط جوجل</value>
+  </data>
+  <data name="DeleteSuccessful" xml:space="preserve">
+    <value>تم الحذف بنجاح</value>
+  </data>
+  <data name="ErrorWhileDeleting" xml:space="preserve">
+    <value>خطأ أثناء الحذف</value>
+  </data>
+  <data name="OperationSuccessful" xml:space="preserve">
+    <value>تمت العملية بنجاح</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>حدث خطأ</value>
+  </data>
+  <data name="My Account" xml:space="preserve">
+    <value>حسابي</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="Sign Out" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Welcome to Comedy Factory Admin" xml:space="preserve">
+    <value>مرحباً بك في لوحة إدارة مصنع الكوميديا</value>
+  </data>
+  <data name="Admin panel for managing Comedy Factory content and users" xml:space="preserve">
+    <value>لوحة الإدارة لإدارة محتوى ومستخدمي مصنع الكوميديا</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>الاسم مطلوب</value>
+  </data>
+  <data name="NameLength" xml:space="preserve">
+    <value> الاسم يجب أن يكون بين 3 و 100 حرف</value>
+  </data>
+  <data name="PhoneInvalid" xml:space="preserve">
+    <value>رقم الهاتف غير صحيح</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>البريد الإلكتروني مطلوب</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>البريد الإلكتروني غير صحيح</value>
+  </data>
+  <data name="EmailLength" xml:space="preserve">
+    <value>البريد الإلكتروني لا يمكن أن يزيد عن 255</value>
+  </data>
+  <data name="AgeRequired" xml:space="preserve">
+    <value>العمر مطلوب</value>
+  </data>
+  <data name="AgeRange" xml:space="preserve">
+    <value>العمر يجب أن يكون بين 13 و 120</value>
+  </data>
+  <data name="GenderRequired" xml:space="preserve">
+    <value>الجنس مطلوب</value>
+  </data>
+  <data name="CityRequired" xml:space="preserve">
+    <value>المدينة مطلوبة</value>
+  </data>
+  <data name="CountryRequired" xml:space="preserve">
+    <value>الدولة مطلوبة</value>
+  </data>
+  <data name="DesireRequired" xml:space="preserve">
+    <value>الرغبة مطلوبة</value>
+  </data>
+  <data name="YouCanExpectToHear" xml:space="preserve">
+    <value>يمكنك أن تتوقع سماع أخبار من لجنتنا. سنتواصل معك قريبًا.</value>
+  </data>
+  <data name="PhoneRequired" xml:space="preserve">
+    <value>رقم الهاتف مطلوب</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="EnterYourEmail" xml:space="preserve">
+    <value>ادخل بريد الكتروني</value>
+  </data>
+  <data name="EnterYourPassword" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+  <data name="RegisterHere" xml:space="preserve">
+    <value> سجل هنا</value>
+  </data>
+  <data name="DontHaveAccount" xml:space="preserve">
+    <value>ليس لديك حساب ؟</value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="LoginHere" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="AlreadyHaveAccount" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+</root>

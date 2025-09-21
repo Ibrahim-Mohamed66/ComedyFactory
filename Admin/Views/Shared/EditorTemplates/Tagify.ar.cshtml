@@ -1,0 +1,5 @@
+﻿@model dynamic
+@{
+    var name = ViewData.ModelMetadata.DisplayName;
+}
+<input type="text" asp-for="@Model" class="tagify" value="" placeholder="@name">

@@ -1,0 +1,9 @@
+﻿@model string
+
+<div class="form-control dropzone image clearfix">
+    <input type="hidden" asp-for="@Model"/>
+    <a class="btn btn-secondary rounded-0 fileinput-button dz-clickable float-right" href="javascript:void(0);">
+        <i class="fa fa-file-image-o fa-fw"></i>
+        <span>@_localizer["UploadPicture"]</span>
+    </a>
+</div>

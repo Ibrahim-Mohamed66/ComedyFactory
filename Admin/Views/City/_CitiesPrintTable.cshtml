@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CityDataTable>
+
+<link rel="stylesheet" href="/css/en/bootstrap.min.css">
+
+<table class="table table-striped table-bordered datatable" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.EnName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hidden)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOnUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedOnUtc)
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplayOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hidden)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOnUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedOnUtc)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

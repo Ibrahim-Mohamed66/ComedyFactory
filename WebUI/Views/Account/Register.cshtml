@@ -1,0 +1,119 @@
+﻿@using Domain.Enums
+@using WebUI.Mapper
+@using WebUI.ViewModels
+@model RegisterVm
+
+@{
+    var isArabic = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    ViewData["Title"] = _localizer["Register"];
+    Layout = "_MiniLayout";
+
+}
+
+<div class="register py-5">
+    <div class="container d-flex align-items-center justify-content-center min-vh-100" dir="@(isArabic ? "rtl" : "ltr")">
+        <div class="col-md-10 col-lg-7">
+            <!-- control form width -->
+            <form asp-controller="Account" asp-action="Register"
+                  method="post"
+                  style="padding: 3.3125rem;"
+                  class="p-5 shadow-lg rounded-4">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="row">
+                    <!-- Full Name -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="FullName">@_localizer["Name"]</label>
+                            <input asp-for="FullName" class="form-control" />
+                            <small><span asp-validation-for="FullName" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="Email">@_localizer["Email"]</label>
+                            <input asp-for="Email" type="email" class="form-control" />
+                            <small><span asp-validation-for="Email" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="Mobile">@_localizer["Phone"]</label>
+                            <input asp-for="Mobile" type="text" class="form-control" />
+                            <small><span asp-validation-for="Mobile" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="Gender">@_localizer["Gender"]</label>
+                            <select asp-for="Gender" class="form-select select__field"
+                                    asp-items="Model.GenderList">
+                                <option value="">@_localizer["Select"]</option>
+                            </select>
+                            <small><span asp-validation-for="Gender" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                   
+                    <!-- Password -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="Password">@_localizer["Password"]</label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <small><span asp-validation-for="Password" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="ConfirmPassword">@_localizer["ConfirmPassword"]</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                            <small><span asp-validation-for="ConfirmPassword" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+                    <!-- BirthDay -->
+                    <div class="col-md-12">
+                        <div class="form-group mb-4">
+                            <label class="form-label ms-3" asp-for="BirthDay">@_localizer["BirthDate"]</label>
+                            <input asp-for="BirthDay" type="date" class="form-control" />
+                            <small><span asp-validation-for="BirthDay" class="form-text text-danger"></span></small>
+                        </div>
+                    </div>
+
+
+                    <!-- Hidden Captcha -->
+                    <div class="form-group col-12">
+                        <input id="g-recaptcha-response" name="g-recaptcha-response" type="hidden" value="">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-md-12 ">
+                        <button type="submit" style="margin-top:15px;" class="btn btn-primary w-100 text-white py-3 m-3 fs-5 rounded-pill">
+                            @_localizer["Register"]
+                        </button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="mb-0">
+                            @_localizer["AlreadyHaveAccount"]
+                            <a asp-controller="Account" asp-action="Login"
+                               asp-route-language="@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">@_localizer["LoginHere"]</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

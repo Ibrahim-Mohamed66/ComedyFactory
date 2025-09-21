@@ -1,0 +1,4 @@
+﻿@model DateTime
+
+<input type="text" asp-for="@Model" class="input-group birthdate en"
+       value="@(Model > DateTime.MinValue ? string.Format("{0:dd-MM-yyyy}", Model) :string.Format("{0:dd-MM-yyyy}", DateTime.UtcNow))" />

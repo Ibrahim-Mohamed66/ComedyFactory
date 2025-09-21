@@ -1,0 +1,35 @@
+.bg-success {
+  background-color: #198754 !important;
+  border: none;
+  &.disabled {
+    background-color: lighten(#198754, 20%) !important;
+  }
+}
+.bg-danger {
+  background-color: #dc3545 !important;
+  border: none;
+  &.disabled {
+    background-color: lighten(#dc3545, 20%) !important;
+  }
+}
+.bg-dark {
+  background-color: #212529 !important;
+  border: none;
+  &.disabled {
+    background-color: lighten(#212529, 20%) !important;
+  }
+}
+.bg-info {
+  background-color: #0dcaf0 !important;
+  border: none;
+  &.disabled {
+    background-color: lighten(#0dcaf0, 20%) !important;
+  }
+}
+.bg-secondary {
+  background-color: #6c757e !important;
+  border: none;
+  &.disabled {
+    background-color: lighten(#6c757e, 20%) !important;
+  }
+}

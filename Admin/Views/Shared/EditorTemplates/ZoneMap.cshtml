@@ -1,0 +1,19 @@
+﻿@model string
+@{
+    // var mapKey = await _service.GetSeo();
+}
+<style>
+    #gllpZoom {
+      min-height: 600px;
+    }
+</style>
+
+<fieldset class="gllpLatlonPicker">
+    <div class="d-flex justify-content-around" id="gllpZoom_container">
+      <input type="text" class="gllpSearchField form-control" placeholder="Enter location here">
+            <input type="text" class="gllpLinkField form-control" placeholder="or enter Google map link">
+            <input type="button" class="gllpCurrentLocation btn btn-dark" value="or Get your location">
+    </div>
+    <div class="gllpMap form-control" id="gllpZoom" style="height: 300px">@_localizer["GoogleMaps"]</div>
+    <input type="hidden" class="gllLatLng" asp-for="@Model" />
+</fieldset>

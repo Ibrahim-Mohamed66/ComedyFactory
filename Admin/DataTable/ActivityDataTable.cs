@@ -1,0 +1,39 @@
+﻿using Fingers10.ExcelExport.Attributes;
+using JqueryDataTables.ServerSide.AspNetCoreWeb.Attributes;
+
+namespace Admin.DataTable
+{
+    public class ActivityDataTable
+    {
+        [IncludeInReport(Order = 1)]
+        public int Id { get; set; }
+
+        [SearchableString()]
+        [IncludeInReport(Order = 2)]
+        [Sortable]
+        public string ArName { get; set; }
+
+        [SearchableString()]
+        [IncludeInReport(Order = 3)]
+        [Sortable]
+        public string EnName { get; set; }
+
+        [IncludeInReport(Order = 4)]
+        [Sortable]
+        public int DisplayOrder { get; set; }
+
+        [IncludeInReport(Order = 5)]
+        [Sortable]
+        public bool Hidden { get; set; }
+
+        [IncludeInReport(Order = 6)]
+        [SearchableString]
+        [Sortable]
+        public DateTime? CreatedOnUtc { get; set; }
+
+        [IncludeInReport(Order = 7)]
+        [SearchableString]
+        [Sortable]
+        public DateTime? UpdatedOnUtc { get; set; }
+    }
+}

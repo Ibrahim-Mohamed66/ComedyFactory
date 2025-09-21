@@ -1,0 +1,5 @@
+﻿@model string
+    
+@if (!string.IsNullOrEmpty(Model)) { 
+<a href="https://maps.google.com/?q=@Model" target="_blank" class="btn my_btn btn-sm">@_localizer["ViewMap"]</a>
+}

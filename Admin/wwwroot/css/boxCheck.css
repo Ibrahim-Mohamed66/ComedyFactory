@@ -1,0 +1,27 @@
+.box [type="radio"]:checked,
+.box [type="checkbox"]:checked,
+[type="radio"]:not(:checked),
+[type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+.box [type="radio"]:not(:checked) + label,
+.box [type="checkbox"]:not(:checked) + label {
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  color: #fff !important;
+  border: 2px solid #706d6b !important;
+  background-color: #3d3a38 !important;
+  border-radius: 10px;
+}
+.box [type="radio"]:checked + label,
+.box [type="checkbox"]:checked + label {
+  padding: 10px;
+  display: inline-block;
+  color: #3d3a38 !important;
+  background-color: #e6b569 !important;
+  border: 2px solid #706d6b !important;
+  border-radius: 10px;
+}

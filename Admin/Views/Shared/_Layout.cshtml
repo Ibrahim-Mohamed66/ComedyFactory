@@ -1,49 +1,162 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Admin</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Admin.styles.css" asp-append-version="true" />
+    <cache expires-after=" @TimeSpan.FromHours(8)">
+@await Component.InvokeAsync("InitFloara")
+</cache>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>@ViewData["Title"] - @_localizer["Comedy Factory Administration Panel"] </title>
+<!-- Core Style -->
+<link rel="stylesheet" href="~/css/admin/en/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/admin/en/general.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="~/lib/admin/metismenu/dist/metisMenu.min.css">
+<link rel="stylesheet" type="text/css" href="~/lib/admin/daterangepicker/daterangepicker.css" />
+
+<link href="~/lib/admin/froala-wysiwyg-editor/css/froala_style.css" rel="stylesheet" />
+<link href="~/lib/admin/froala-wysiwyg-editor/css/froala_editor.pkgd.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/admin/codemirror/codemirror.min.css">
+
+<link href="~/lib/admin/froala-wysiwyg-editor/css/plugins/code_view.min.css" rel="stylesheet" />
+
+<link href="~/lib/admin/dropzone/dist/basic.css" rel="stylesheet" />
+<link href="~/lib/admin/dropzone/dist/dropzone.css" rel="stylesheet" />
+<link href="~/lib/admin/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link href="~/lib/admin/datatables/media/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+<link href="~/lib/admin/datatables/media/css/select.bootstrap4.min.css" rel="stylesheet" />
+<link href="~/lib/admin/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+<link href="~/lib/admin/select2/dist/css/select2.min.css" rel="stylesheet">
+<link href="~/lib/admin/select2/dist/css/select2-bootstrap4.min.css" rel="stylesheet">
+<link href="~/lib/admin/selectize/dist/css/selectize.css" rel="stylesheet">
+<link href="~/lib/admin/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+<link rel="stylesheet" href="~/lib/admin/lightgallery/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="~/lib/admin/morris/morris.css">
+<link rel="stylesheet" href="~/lib/admin/alertify-js/build/css/alertify.min.css">
+<link href="~/lib/admin/bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/intl-telephone/intlTelInput.css" />
+<link rel="stylesheet" href="~/lib/morris/morris.css">
+@RenderSection("CSS", required: false)
+
+@*     <link rel="stylesheet" href="~/css/admin/en/style.min.css" asp-append-version="true">
+        *@
+ <link rel="stylesheet" href="~/css/admin/en/style.min.css" asp-append-version="true"> 
+<link rel="stylesheet" href="~/css/admin/en/common.min.css" asp-append-version="true">
+<script src="~/lib/jquery/jquery.min.js"></script>
+<style>
+    .overflow-x {
+        overflow-x: scroll
+    }
+</style>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Admin</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    <div class="wrapper">
+        <div class="main-header">
+            <partial name="_main-header" />
+        </div>
+        <div class="main-sidebar">
+            <partial name="_main-sidebar" />
+
+        </div>
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            @if (ViewData["noBreadcrumb"] == null)
+            {
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item home" aria-current="page">
+                            <i class="fa fa-home" aria-hidden="true"></i> <a href="/">@_localizer["Home"]</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+
+                        @if (ViewData["Title"] != null && ViewData["Main"] != null)
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+                        }
+
+                    </ol>
+                </nav>
+            }
             @RenderBody()
-        </main>
+
+        </div>
+        <div class="main-footer d-flex align-items-center justify-content-center">
+            @_localizer["All copyrights reserved to Comedy Factory"]
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Admin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Core JS -->
+    <script src="~/lib/admin/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/admin/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Vendors JS -->
+    <script src="~/lib/admin/svg-injector/svg-injector.min.js"></script>
+    <script src="~/lib/admin/jQuery-slimScroll/jquery.slimscroll.js"></script>
+    <script src="~/lib/admin/metismenu/dist/metisMenu.min.js"></script>
+    <script type="text/javascript" src="~/lib/admin/moment/moment.js"></script>
+    <script type="text/javascript" src="~/lib/admin/daterangepicker/daterangepicker.min.js"></script>
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
+    <!-- Code Mirror JS files. -->
+    <script type="text/javascript" src="~/lib/admin/codemirror/codemirror.min.js"> </script>
+    <script type="text/javascript" src="~/lib/admin/codemirror/xml.min.js"> </script>
+    <script src="~/lib/admin/alertify-js/build/alertify.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jszip.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.print.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.html5.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.select.min.js"></script>
+    <!-- Include the plugin JS file. -->
+
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/plugins/font_family.min.js"></script>
+    <script src="~/lib/admin/froala-wysiwyg-editor/js/plugins/code_view.min.js"></script>
+    <script src="~/lib/admin/dropzone/dist/dropzone.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/jszip.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.print.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/buttons.html5.min.js"></script>
+    <script src="~/lib/admin/datatables/media/js/dataTables.select.min.js"></script>
+
+    <script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"
+        type="text/javascript"></script>
+
+    <script src="~/js/admin/filter.datatables.js"></script>
+
+    <script src="/js/spark.froala.js" asp-append-version="true"></script>
+    <script src="/js/spark.dropzone.js" asp-append-version="true"></script>
+    <script src="~/js/admin/sweetalert.min.js"></script>
+    <script src="~/lib/admin/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="~/lib/admin/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/lib/admin/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="~/lib/admin/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/lib/admin/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/lib/admin/bootstrap-birthday/dist/bootstrap-birthday.min.js"></script>
+    <script src="~/lib/admin/lightgallery/dist/js/lightgallery-all.min.js"></script>
+    <script src="~/js/admin/spark.datatables.js" asp-append-version="true"></script>
+    <script src="~/lib/admin/bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/lib/raphael/raphael-min.js"></script>
+    <script src="~/lib/morris/morris.min.js"></script>
+    <script src="~/lib/intl-telephone/intlTelInput.min.js"></script>
+    <script src="~/lib/intl-telephone/utils.js"></script>
+    @RenderSection("JS", required: false)
+
+    <script src="~/lib/admin/alertify-js/build/alertify.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    <script src="/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    @RenderSection("Scripts", required: false)
 </body>
+
 </html>

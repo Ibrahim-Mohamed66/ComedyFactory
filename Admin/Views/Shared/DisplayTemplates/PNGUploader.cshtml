@@ -1,0 +1,6 @@
+﻿@model string
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <a href="@Config.AssetsDomain@Model" target="_blank" class="btn btn-dark btn-sm">@_localizer["Download"]</a>
+}

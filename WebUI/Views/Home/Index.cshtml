@@ -1,8 +1,205 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model HomeViewModel
+@using System.Globalization
+
+
+@{
+    ViewData["Title"] = _localizer["HomePage"];
+    var lang = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="intro__page d-flex align-items-center">
+    <div class="container py-lg-100 py-70">
+        @if (Model.HomePage != null)
+        {
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    @Html.Raw(isArabic ? Model.HomePage.ArContent : Model.HomePage.EnContent)
+                </div>
+                <div class="col-md-6 mt-md-0 mt-30">
+                    <img src="@(isArabic? Model.HomePage.ArPicture : Model.HomePage.EnPicture)?w=523&h=361&mode=crop"
+                        class="img-fluid object-fit-cover w-100 rounded" />
+                </div>
+            </div>
+
+            <div class="col-12 mt-30">
+                <div class="ratio ratio-16x9 rounded overflow-hidden">
+                    <iframe
+                        src="@Config.VideoURLEmbed@(isArabic? Model.HomePage.ArYoutubeVideo : Model.HomePage.EnYoutubeVideo)?rel=0"
+                        title="YouTube video" allowfullscreen></iframe>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+<div class="ceo__details__container pe-0 ps-0 bg-off-white py-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 col-lg-11 mx-auto">
+                <div class="heading heading__line">
+                    <h1>@_localizer["The brilliant team behind Comedy Factory"]</h1>
+                </div>
+                <div class="row align-items-center justify-content-start mt-50">
+                    @if (Model.Professors != null)
+                    {
+                        @foreach (var item in Model.Professors)
+                        {
+                            <div class="col-lg-4">
+                                <img src="@(isArabic? item.ArPicture: item.EnPicture)?w=483&h=360&mode=pad&bgcolor=#e2f2f9"
+                                    class="img-fluid object-fit-cover w-100" />
+                            </div>
+
+                            <div class="col-lg-8 col-md-6 mt-md-0 mt-30 ceo__details">
+                                <div class="px-md-0 px-30">
+                                    <div class="heading">
+                                        <h1>@(isArabic? item.ArName: item.EnName)</h1>
+                                    </div>
+                                    <div class="description mt-30">
+                                        @Html.Raw(isArabic ? item.ArContent : item.EnContent)
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="teachers mt-lg-70 mt-50">
+    <div class="container">
+        @if (Model.MasterCategories != null)
+        {
+            <div class="row">
+                @foreach (var item in Model.MasterCategories)
+                {
+                    <div class="col-xl-10 col-lg-11 mx-auto mb-50">
+                        <div class="heading heading__line">
+                            <h2>@(isArabic? item.ArName: item.EnName)</h2>
+                        </div>
+                        <div class="row mt-lg-70 mt-50">
+                            @foreach (var item2 in Model.Professors.Where(e => item.Id == e.MasterCategoryId))
+                            {
+                                <div class="col-lg-4 col-md-6 px-10 mb-md-0 mb-30">
+                                    <div class="bg-off-white rounded">
+                                        <div class="text-center custom__profile pt-50 position-relative">
+                                            <span class="long__circle"></span>
+                                            <span class="red__circle"></span>
+                                            <span class="yellow__circle"></span>
+                                            <img src="@(isArabic? item2.ArPicture: item2.EnPicture)?w=228&h=228&mode=pad&bgcolor=#e2f2f9"
+                                                alt="teacher" class="img-fluid object-fit-contain" />
+                                        </div>
+                                        <div class="p-20">
+                                            <div class="heading">
+                                                <h2>@(isArabic? item2.ArName: item2.EnName)</h2>
+                                            </div>
+                                            <div class="description mt-30">
+                                                @{
+                                                    var content = isArabic ? item2.ArContent : item2.EnContent;
+                                                    var textOnly = System.Text.RegularExpressions.Regex.Replace(content ?? "", "<.*?>", "");
+                                                    var isShort = string.IsNullOrEmpty(textOnly) || textOnly.Length <= 200;
+                                                    var shortContent = !isShort && !string.IsNullOrEmpty(content) ? 
+                                                        content.Substring(0, Math.Min(content.Length, 200)) + "..." : content;
+                                                }
+
+                                                <div class="content-preview">
+                                                    @Html.Raw(isShort ? content : shortContent)
+                                                </div>
+
+                                                @if (!isShort)
+                                                {
+                                                    <div class="extra-content" style="display: none;">
+                                                        @Html.Raw(content)
+                                                    </div>
+                                                }
+
+                                                <div class="text-center">
+                                                    <button class="toggle-btn text-white btn btn-info" @(isShort ?
+                                                                                                                                                   "style=display:none;" : "")>
+                                                        @_localizer["ReadMore"]
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<div class="mt-lg-70 mt-50">
+    <div class="container">
+        <div class="heading heading__line">
+            <h2>
+                @_localizer["SignUpMessage"]
+            </h2>
+        </div>
+        <div class="row mt-50">
+            <div class="col-xl-10 col-lg-11 mx-auto">
+                <div class="row justify-content-center">
+                    @if (Model.Activities != null)
+                    {
+                        @foreach (var activity in Model.Activities)
+                        {
+                            <div class="col-lg-4 col-md-5 px-10 mt-md-0 mt-30">
+                                <div class="px-30 py-50 bg-off-white text-center">
+                                    <div class="heading">
+                                        <h3 class="d-flex flex-column text-center align-items-center gap-30">
+                                            <img src="@activity.Icon" alt="" width="60" height="80" />
+                                            <span>@(isArabic? activity.ArName: activity.EnName)</span>
+                                        </h3>
+                                    </div>
+                                    <a asp-action="Create" asp-controller="Registeration"
+                                        asp-route-language="@(isArabic ? "ar" : "en")"
+                                        class="btn btn-primary text-white w-100 mt-50">@_localizer["SignUpNow"]</a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="mx-auto text-center my-50">
+        <div>
+            @_localizer["MoreInfo"]
+            <a href="mailto:info@sauditheaters.com" class="text-link text-primary">info@sauditheaters.com</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(() => {
+            $(".toggle-btn").click(function () {
+                const $this = $(this);
+                const $description = $this.closest('.description');
+                const $preview = $description.find('.content-preview');
+                const $extraContent = $description.find('.extra-content');
+
+                if ($extraContent.is(":visible")) {
+                    // Currently showing full content, switch back to preview
+                    $extraContent.slideUp();
+                    $preview.slideDown();
+                    $this.html('@Html.Raw(_localizer["ReadMore"])');
+                } else {
+                    // Currently showing preview, show full content
+                    $preview.slideUp();
+                    $extraContent.slideDown();
+                    $this.html('@Html.Raw(_localizer["ReadLess"])');
+                }
+            });
+        });
+    </script>
+}

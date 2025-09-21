@@ -1,0 +1,17 @@
+@model string
+@{
+
+    var picture = Model;
+    if (Model != null && !Model.StartsWith(Config.ImageflowS3Key))
+    {
+        picture = Config.ImageflowS3Key + picture.TrimStart('/');
+    }
+}
+@if (!String.IsNullOrWhiteSpace(Model))
+{
+
+    <img data-toggle="tooltip" src="@picture?h=75&autorotate=true&mode=pad&bgcolor=white&format=jpg"
+         title="<img src='@picture?h=300&autorotate=true&mode=pad&bgcolor=white&format=jpg' class='img-fluid' />"/>
+
+
+}

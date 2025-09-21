@@ -1,0 +1,15 @@
+﻿@model string
+@{
+    var registerURL = $"https://pos.tseboegyptcrm.com/Account/Register/{Model}";
+}
+
+<div class="form-control">
+    <span data-url="@registerURL" class="registerURL d-flex align-items-center justify-content-between">
+        <span >@registerURL</span>
+        <a  href="#" onclick='copyToClipboard(this)'>
+            <img src="/images/copy.svg" alt="Copy" title="Copy">
+            Click To copy link 
+        </a>
+    </span>
+</div>
+

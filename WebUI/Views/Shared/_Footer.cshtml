@@ -1,0 +1,59 @@
+﻿@using Data.Repositories.IRepositories
+
+@inject IConfigurationRepository _IConfigurationRepository
+
+@{
+
+    var socialMedia = await _IConfigurationRepository.GetFirstConfigurationAsync();
+}
+
+<footer class="footer bg-light py-30">
+    <div class="container">
+        <div class="row align-items-center">
+            <div
+                class="col-md-6 d-flex align-items-center justify-content-md-start justify-content-center order-md-0 order-1">
+                @_localizer["Footer"] <span id="year"></span>
+            </div>
+            @if (socialMedia != null && socialMedia.Youtube != null && socialMedia.Instagram != null &&
+                        socialMedia.Tiktok != null && socialMedia.Twitter != null)
+            {
+                <div
+                    class="col-md-6 d-flex align-items-center justify-content-md-end justify-content-center order-md-1 order-0 mb-md-0 mb-20">
+                    <div class="d-flex flex-wrap gap-10">
+                        <a href="mailto:info@sauditheaters.com" class="text-decoration-none">
+                            <i class="fas fa-envelope" style="font-size: 24px; color: #333;"></i>
+                        </a>
+                        <a href="@socialMedia.Youtube" target="_blank" class="text-decoration-none">
+                            <i class="fab fa-youtube" style="font-size: 24px; color: #FF0000;"></i>
+                        </a>
+                        <a href="@socialMedia.Twitter" target="_blank" class="text-decoration-none">
+                            <i class="fab fa-x-twitter" style="font-size: 24px; color: #000;"></i>
+                        </a>
+                        <a href="@socialMedia.Instagram" target="_blank" class="text-decoration-none">
+                            <i class="fab fa-instagram" style="font-size: 24px; color: #E4405F;"></i>
+                        </a>
+                        <a href="@socialMedia.Tiktok" target="_blank" class="text-decoration-none">
+                            <i class="fab fa-tiktok" style="font-size: 24px; color: #000;"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+            else
+            {
+
+            }
+
+
+        </div>
+            <hr />
+            <div class="row algin-items-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-md-start justify-content-center">
+                    <img src="~/images/gea.png" width="200" alt="GEA Logo" />
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-md-end justify-content-center">
+                    <img src="~/images/Vision & Quality of Life Logos-01.png" width="300"
+                        alt="Vision & Quality of Life Logos" />
+                </div>
+            </div>
+    </div>
+</footer>
